@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>European Car | Gestão da oficina</title>
+    <link rel="stylesheet" href="./admin.css" />
+    <link rel="stylesheet" href="./theme.css" />
+    <link rel="stylesheet" href="./brand.css" />
+    <link rel="stylesheet" href="./logo.css" />
+    <link rel="stylesheet" href="./logo-layout.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
+  </head>
+  <body>
+    <main id="login-screen" class="login-shell">
+      <section class="login-card">
+        <img class="login-logo" src="../images/EUROPEAN/logo.png" alt="European Performance" />
+        <h1>Gestão da oficina</h1>
+        <p class="muted">Acesse sua área de trabalho.</p>
+        <form id="login-form" class="form-stack">
+          <label>Usuário ou e-mail<input id="email" type="text" autocomplete="username" required /></label>
+          <label>Senha<input id="password" type="password" autocomplete="current-password" minlength="6" required /></label>
+          <button type="submit">Entrar no sistema</button>
+        </form>
+        <p id="auth-message" class="form-message" role="status"></p>
+      </section>
+    </main>
+
+    <div id="app" hidden>
+      <aside class="sidebar">
+        <div class="brand"><img src="../images/EUROPEAN/logo.png" alt="European Performance" /></div>
+        <nav aria-label="Menu principal">
+          <button class="nav-item active" data-view="dashboard">Visão geral</button>
+          <button class="nav-item" data-view="orders">Ordens de serviço</button>
+          <button class="nav-item" data-view="budgets">Orçamentos</button>
+          <button class="nav-item" data-view="customers">Clientes e veículos</button>
+          <button class="nav-item" data-view="inventory">Estoque</button>
+          <button class="nav-item" data-view="schedule">Agenda</button>
+          <button class="nav-item" data-view="finance">Financeiro</button>
+          <button class="nav-item" data-view="team">Equipe</button>
+        </nav>
+        <div class="sidebar-bottom"><span id="user-name"></span><button id="logout" class="text-button">Sair</button></div>
+      </aside>
+      <main class="workspace">
+        <header class="topbar"><div><p class="eyebrow" id="section-kicker">OFICINA</p><h1 id="page-title">Visão geral</h1></div><button id="primary-action" class="primary-action">+ Nova OS</button></header>
+        <div id="content" class="content"></div>
+      </main>
+    </div>
+
+    <dialog id="modal"><div class="modal-head"><h2 id="modal-title"></h2><button id="close-modal" class="icon-button" aria-label="Fechar">×</button></div><div id="modal-content"></div></dialog>
+    <template id="empty-state"><section class="empty-state"><h3>Nenhum registro por aqui</h3><p>Use o botão acima para criar o primeiro registro.</p></section></template>
+    <script src="./admin.js"></script>
+    <script src="./workshop-features.js"></script>
+    <script src="./pdf.js"></script>
+  </body>
+</html>
