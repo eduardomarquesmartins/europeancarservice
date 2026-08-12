@@ -5006,6 +5006,25 @@ blockquote {
   overflow: hidden;
 }
 
+.hero-video,
+.hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-video {
+  z-index: 0;
+  display: block;
+  object-fit: cover;
+}
+
+.hero-video-overlay {
+  z-index: 1;
+  background: linear-gradient(90deg, rgba(0, 0, 0, .7) 0%, rgba(0, 0, 0, .35) 55%, rgba(0, 0, 0, .2) 100%);
+}
+
 .home-banner-section.home-2 {
   background-color: var(--white);
 }
@@ -10052,12 +10071,12 @@ blockquote {
 
   /* Hero Banner Mobile Adjustment */
   .home-banner-section {
-    min-height: auto !important;
-    padding-top: 105px !important;
-    padding-bottom: 55px !important;
+    min-height: calc(100vh - 70px) !important;
+    padding-top: 100px !important;
+    padding-bottom: 60px !important;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .image-banner-absolute {
@@ -10070,14 +10089,14 @@ blockquote {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center center !important;
+    object-position: center 30% !important;
   }
 
   .image-banner-absolute::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.75) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.65) 60%, rgba(0,0,0,0.85) 100%);
     pointer-events: none;
     z-index: 1;
   }
@@ -10087,15 +10106,22 @@ blockquote {
     margin-bottom: 0;
     position: relative;
     z-index: 4;
-    text-align: center;
+    text-align: left !important;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start !important;
+    width: 100%;
+  }
+
+  .bottom-block-banner h1,
+  .bottom-block-banner .white-text,
+  .bottom-block-banner p.white-text.banner {
+    text-align: left !important;
   }
 
   .bottom-block-banner p.white-text.banner {
     margin-bottom: 24px;
-    max-width: 320px;
+    max-width: 100%;
   }
 
   .bgr-red-01, .bgr-red-02 {
@@ -10105,14 +10131,15 @@ blockquote {
 
 @media screen and (max-width: 479px) {
   .home-banner-section {
-    min-height: auto !important;
-    padding-top: 95px !important;
-    padding-bottom: 45px !important;
+    min-height: calc(100vh - 65px) !important;
+    padding-top: 90px !important;
+    padding-bottom: 50px !important;
   }
 
   .image-banner-absolute .image-cover {
-    object-position: center center !important;
+    object-position: center 25% !important;
   }
 }
+
 
 
